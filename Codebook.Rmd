@@ -1,0 +1,62 @@
+---
+title: "Codebook"
+author: "Ahmed Zoha"
+date: "September 16, 2015"
+output: html_document
+---
+This ***Code Book*** is generated on `r as.character(Sys.time())`, for the Coursera "Getting and Cleaning Data" course project. The description of the variables found in the tidy dataset is as follows:
+
+Variable Description
+---------------------
+
+
+Variable name    | Description
+-----------------|------------
+subject          | It specifies the subject ID who has performed the activity. The value ranges from 1 to 30.
+activity         | Name of the Activity 
+featcategories   | Feature: It shows the categorization whether it is Time domain signal or frequency domain signal (i.e., Time or Freq)
+featint          | Feature: Specifies the Measuring instrument (i.e., Accelerometer or Gyroscope)
+featAcc          | Feature: Acceleration signal (Body or Gravity)
+featstat         | Feature: Statistics (i.e., Mean or Standard Deviation (SD))
+fJerk            | Feature: Jerk signal
+fMagnitude       | Feature: Magnitude of the signals 
+fAxis            | Feature: It specifies the axis of the 3-axial signals (i.e., X, Y, or Z direction)
+count            | Feature: Count of data points used to compute `average`
+average          | Feature: Average of each variable for each activity and each subject
+
+Structure of the Dataset
+-----------------
+
+```{r}
+str(dftidy)
+
+```
+Key variables in the data table
+----------------------------------------
+
+```{r}
+key(dftidy)
+```
+
+Displaying First 10 rows of the Dataset
+---------------------------------------
+
+```{r}
+head(dftidy,n=10)
+```
+
+Summary
+-------
+
+```{r}
+summary(dftidy)
+```
+Save to file
+------------
+
+Save the dataframe `dftidy` to  `tidydataset.txt`.
+
+```{r save}
+f = file.path(pathdata, "tidaydataset.txt")
+write.table(dftidy, f, quote=FALSE, sep="\t", row.names=FALSE)
+```
